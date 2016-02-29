@@ -5,7 +5,7 @@ from django.views import generic
 from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-def zhuye(request):
+def Zhuye(request):
     dt = datetime.now()
     extime = dt.strftime('%Y%m%d%H%M%S')
     extime = extime[0:10]
@@ -35,7 +35,7 @@ def zhuye(request):
         'alltag':alltag,
         })
     
-def listroom(request,question_id):
+def Listroom(request,question_id):
     if question_id == "douyutv":
         question_id = "douyu tv"
     dt = datetime.now()
@@ -46,7 +46,7 @@ def listroom(request,question_id):
     objects, page_range = my_pagination(request, roomlist)
     return render(request,'adddata/all.html',{'room':objects,"page_range": page_range,})
 
-def my_pagination(request, queryset, display_amount=40, after_range_num = 5,bevor_range_num = 4):
+def My_pagination(request, queryset, display_amount=40, after_range_num = 5,bevor_range_num = 4):
     paginator = Paginator(queryset, display_amount)
     try:
         page =int(request.GET.get('page'))
