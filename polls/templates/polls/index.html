@@ -1,0 +1,7 @@
+{{ hello }}
+{% for i in question %}
+  <li><a href = '{% url 'choice' i.id %}'>{{ i.questiontext }}</a></li>
+{% endfor %}
+
+
+

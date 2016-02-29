@@ -1,0 +1,3 @@
+﻿{% for i in question.choice_set.all %}
+<li>{{ i.choicetext }}:{{ i.vote }}</li>
+{% endfor %}

@@ -1,0 +1,71 @@
+ 
+
+{% extends "adddata/base.html" %}
+{% block list %}
+{% for i in room %}
+<div class="col-xs-6 col-sm-3 center-block" style="margin-top: 80px;">
+  <div class="col-xs-12 " style="background-color:#F8F8F8;a.color:#FFFF99">
+    <a href="{{ i.url }}" class="list" title="{{ i.status }}">
+      <div class="row" width="320" height="180">
+        <img src="{{ i.img }}" class="img-responsive img-thumbnail" alt="{{ i.status|slice:"7" }}"
+        title="{{ i.status }}" >
+      </div>
+      <div class="row">
+        <div class="pull-left " style="text-overflow:ellipsis;">
+          <b>
+            <p>
+              {{ i.status|slice:"5" }}.
+            </p>
+          </b>
+        </div>
+        <div class="pull-right" style="color: #f76300">
+          <p>
+            {{ i.gamename|slice:"5"  }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pull-left">
+          <p>
+            {{ i.username|slice:"5" }}
+          </p>
+        </div>
+        <div class="pull-right">
+          <p class="text-danger">
+            {{ i.renqi }}
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
+{% block alltag %}
+{% for i in alltag %}
+<span class="label label-default">{{ i.name }}</span>
+{% endfor %}
+{% endblock %}
+
+{% block page %}
+<nav>
+  <ul class="pagination pull-right">
+    <li>
+
+
+    {% for p in page_range %}
+      {% ifequal p objects.number %}
+      <li class="active"><a>{{p}}</a></li>
+      {% else %}
+      <li><a href="?page={{p}}" title="第{{p}}页">{{p}}</a><li>
+      {% endifequal %}
+    {% endfor %}
+
+
+  </ul>
+</nav>
+{% endblock %}
+
+{% block dh1 %}
+1
+{% endblock %}
